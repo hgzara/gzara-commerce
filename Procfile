@@ -1,1 +1,1 @@
-web: gunicorn monprojet.wsgi
+web: gunicorn monprojet.wsgi --log-level debug

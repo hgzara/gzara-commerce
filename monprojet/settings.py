@@ -140,3 +140,24 @@ MAILERS = {
 }
 STRIPE_PUBLIC_KEY = os.environ.get('STRIPE_PUBLIC_KEY')  
 STRIPE_SECRET_KEY = os.environ.get('STRIPE_SECRET_KEY')
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'console': {
+            'class': 'logging.StreamHandler',
+        },
+    },
+    'root': {
+        'handlers': ['console'],
+        'level': 'WARNING',
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['console'],
+            'level': 'ERROR',
+            'propagate': True,
+        },
+    },
+}
