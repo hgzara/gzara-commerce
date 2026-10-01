@@ -1,0 +1,10 @@
+{% extends "catalogue/base.html" %}
+{% block title %}Commande confirmée — GZARA Commerce{% endblock %}
+
+{% block content %}
+<div class="container my-5 text-center">
+    <h1 class="fw-bold" style="color:var(--navy);">Merci pour votre commande ! ✅</h1>
+    <p class="text-muted">Un e-mail de confirmation vous sera envoyé prochainement.</p>
+    <a href="{% url 'product_list' %}" class="btn btn-brand mt-3">Retour à la boutique</a>
+</div>
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends "catalogue/base.html" %}
+{% block title %}{{ product.name }} — GZARA Commerce{% endblock %}
+
+{% block content %}
+<div class="container my-5">
+    <div class="row g-5">
+        <div class="col-md-6">
+            {% if product.image %}
+                <img src="{{ product.image.url }}" class="img-fluid rounded-3 shadow-sm" alt="{{ product.name }}">
+            {% else %}
+                <div class="bg-light rounded-3 d-flex align-items-center justify-content-center" style="height:350px;">
+                    <span class="text-muted">Pas d'image</span>
+                </div>
+            {% endif %}
+        </div>
+        <div class="col-md-6">
+            <span class="badge badge-category mb-2">{{ product.category.name }}</span>
+            <h1 class="fw-bold" style="color:var(--navy);">{{ product.name }}</h1>
+            <p class="fs-3 fw-bold mb-4" style="color:var(--blue);">{{ product.price }} €</p>
+            <p class="text-muted">{{ product.description }}</p>
+            {% if product.stock > 0 %}
+                <p class="text-success small">En stock ({{ product.stock }} disponibles)</p>
+            {% else %}
+                <p class="text-danger small">Rupture de stock</p>
+            {% endif %}
+            <a href="{% url 'cart_add' product.id %}" class="btn btn-brand btn-lg mt-3">Ajouter au panier</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

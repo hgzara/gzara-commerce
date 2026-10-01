@@ -1,0 +1,41 @@
+{% extends "catalogue/base.html" %}
+{% block title %}Nos produits — GZARA Commerce{% endblock %}
+
+{% block content %}
+<div class="hero">
+    <div class="container">
+        <h1>Bienvenue chez GZARA Commerce</h1>
+        <p>Vêtements, accessoires, électronique, électroménager et créations faites main</p>
+    </div>
+</div>
+
+<div class="container mb-5">
+    <h2 class="fw-bold mb-4" style="color:var(--navy);">Nos produits</h2>
+    <div class="row g-4">
+        {% for product in products %}
+            <div class="col-12 col-sm-6 col-lg-4">
+                <div class="card h-100 shadow-sm product-card">
+                    {% if product.image %}
+                        <img src="{{ product.image.url }}" class="card-img-top" alt="{{ product.name }}" style="height:200px; object-fit:cover;">
+                    {% else %}
+                        <div class="card-img-top d-flex align-items-center justify-content-center bg-light" style="height:200px;">
+                            <span class="text-muted">Pas d'image</span>
+                        </div>
+                    {% endif %}
+                    <div class="card-body d-flex flex-column">
+                        <span class="badge badge-category align-self-start mb-2">{{ product.category.name }}</span>
+                        <h5 class="card-title">{{ product.name }}</h5>
+                        <p class="card-text text-muted small flex-grow-1">{{ product.description|truncatewords:15 }}</p>
+                        <div class="d-flex justify-content-between align-items-center mt-2">
+                            <span class="fw-bold fs-5" style="color:var(--navy);">{{ product.price }} €</span>
+                            <a href="{% url 'product_detail' product.slug %}" class="btn btn-sm btn-brand">Voir</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% empty %}
+            <p class="text-muted">Aucun produit disponible pour le moment.</p>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

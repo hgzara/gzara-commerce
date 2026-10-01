@@ -1,0 +1,83 @@
+:root {
+    --navy: #1e3a5f;
+    --blue: #2563eb;
+    --light-blue: #eff6ff;
+    --text-dark: #1e293b;
+}
+
+body {
+    background-color: #fafbfc;
+    color: var(--text-dark);
+}
+
+.top-bar {
+    background-color: var(--navy);
+    color: white;
+    letter-spacing: 0.5px;
+}
+
+.main-navbar {
+    background-color: var(--navy);
+}
+
+.main-navbar .nav-link {
+    color: rgba(255,255,255,0.85);
+    font-weight: 500;
+}
+
+.main-navbar .nav-link:hover {
+    color: white;
+}
+
+.main-footer {
+    background-color: var(--navy);
+}
+
+/* Hero banner (page d'accueil) */
+.hero {
+    background: linear-gradient(135deg, var(--navy), var(--blue));
+    color: white;
+    padding: 70px 0;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.hero h1 {
+    font-weight: 700;
+    font-size: 2.6rem;
+}
+
+.hero p {
+    font-size: 1.15rem;
+    opacity: 0.9;
+}
+
+/* Cartes produit */
+.product-card {
+    border: none;
+    border-radius: 14px;
+    overflow: hidden;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(30, 58, 95, 0.15) !important;
+}
+
+.badge-category {
+    background-color: var(--light-blue);
+    color: var(--blue);
+    font-weight: 600;
+}
+
+.btn-brand {
+    background-color: var(--navy);
+    color: white;
+    border: none;
+}
+
+.btn-brand:hover {
+    background-color: var(--blue);
+    color: white;
+}
